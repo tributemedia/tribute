@@ -1,0 +1,12 @@
+{
+    "name": "tributemedia/tribute",
+    "description": "Bootstrap based theme used as the base theme for Tribute Media's Drupal sites.",
+    "type": "drupal-custom-theme",
+    "license": "GNU-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Tributemedia\\Tribute\\": "src/"
+        }
+    },
+    "require": {}
+}
