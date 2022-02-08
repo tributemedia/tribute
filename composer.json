@@ -1,6 +1,6 @@
 {
     "name": "tributemedia/tribute",
-    "description": "Bootstrap based theme used as the base theme for Tribute Media's Drupal sites.",
+    "description": "Bootstrap based theme used as the base theme for Tribute Media's Drupal 9 or later sites.",
     "type": "drupal-custom-theme",
     "license": "GPL-3.0-or-later",
     "autoload": {
