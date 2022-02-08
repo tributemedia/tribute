@@ -1,0 +1,56 @@
+name: Tribute Media Narwhal 2020 Base Theme
+type: theme
+description: Tribute Media Theme based on Bootstrap Framework.
+core_version_requirement: ^8 || ^9
+
+# Defines the base theme.
+base theme: false
+
+libraries:
+    - tribute/global-styling
+    - tribute/fontawesome
+    - core/drupal.dialog.ajax
+
+libraries-extend:
+  core/drupal.dropbutton:
+    - tribute/dropbutton
+  file/drupal.file:
+    - tribute/file
+
+ckeditor_stylesheets:
+  - css/bootstrap.min.css
+  - css/layout.css
+  - css/fontello.css
+  - css/main.css
+  - css/typography.css
+
+# Defines theme regions available.
+regions:
+  view_blocks: 'View Blocks'
+  help: 'Help'
+  topper: 'Top of Header'
+  branding: 'Branding'
+  header: 'Header'
+  main_menu: 'Main Menu'
+  banner: 'Banner'
+  preface: 'Preface'
+  content_top: 'Content Top'
+  content: 'Content'
+  sidebar_second: 'Right Sidebar'
+  content_bottom: 'Content Bottom'
+  postscript: 'Postscript Default Style'
+  postscript1: 'Postscript Secondary Style'
+  footer: 'Footer'
+  # om_branding: 'Overlay Menu Branding'
+  # om_header: 'Overlay Menu Header'
+  # overlay_menu: 'Overlay Menu'
+  mob: 'Mobile Menu'
+  to_top: 'Back to Top Wrapper'
+  tmdocumentation: 'Documentation Page Block'
+  tmdocumentationfw: 'Documentation Page Block - Full Width'
+
+# Information added by Drupal.org packaging script on 2018-08-09
+version: '8.x-4.17'
+core: '8.x'
+project: 'tribute'
+datestamp: 1533828192
