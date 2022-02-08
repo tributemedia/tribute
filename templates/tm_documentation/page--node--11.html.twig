@@ -1,0 +1,469 @@
+{# this is the all-regions page #}
+
+{% if node %}
+  {% if node.status.value == 0 %}
+    {% set statusClass = "node--unpublished" %}
+  {% endif %}
+{% endif %}
+<div class="body-inner inner">
+    <div id="top" class="narwhal narwhal-2020 d8 {{ node.field_landing_page_navigation.value }} {{ node.field_field_form_orientation.value }}">
+    
+
+      <div class="page">
+	  
+        <div class="page-inner">
+
+
+
+          <div id="help-wrapper" class="wrapper row-fluid help-wrapper help_group section-group">
+            <div class="inner">
+              <div id="help-container" class="container row-fluid">
+                <div class="inner">
+                  
+                  <div class="col col-12 block block-block outline transposed clearfix">
+                    <div class="inner">
+                      <h2 class="visually-hidden">Help Region Block</h2>
+                      <div class="content">
+                        <div class="body text-center">
+                          <h4 style="margin:0;">This is a sample of how a block could look as a message. It uses the outline transposed block style.</h4>
+                          <p><strong>This is the help region.</strong></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- end block -->
+                  
+                </div>
+              </div> <!-- #help-container -->
+            </div>
+          </div> <!-- .help-wrapper -->
+
+    
+    
+    
+          <div class="top-wrapper w-navigation">
+            <div class="top-wrapper wo-navigation">
+
+
+                <section id="topper-wrapper" class="wrapper row-fluid topper-wrapper topper-group section-group">
+                  <div class="inner">
+                    <div id="topper-container" class="container row-fluid">
+                      <div id="topper" class="region clearfix">
+                        <div class="inner row">
+                        
+                        <div class="col col-12 block block-block clearfix">
+                          <div class="inner">
+                            <h2 class="visually-hidden">Topper Region Block</h2>
+                            <div class="content">
+                              <div class="body">
+                                <p><a class="icon-videocam" data-toggle="modal" data-target="#allregions-video">Regions and blocks overview.</a></p>
+                                <h4>This is a sample of how a block would look in the top of header Region. Sometimes you can add items like social links or a phone number. Depending on how your theme is laid out, you might find your logo in this region. It's not common that this region will have this much text but it's present to show the styling of this region. This shows the default styling. <strong>This is the top of header region.</strong></h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div> <!-- end block -->
+                        
+                        </div><!-- .inner -->
+                      </div> <!-- #topper -->
+                    </div>  <!-- #topper-container -->
+                  </div>
+                </section>
+
+
+              <header id="header-wrapper" class="wrapper row-fluid header-wrapper section-group" role="banner">
+                <div class="inner">
+                
+        
+                {% if page.branding %}
+                    <div id="header-container" class="container row-fluid branding">
+                        <div class="inner">
+                            <!-- branding block -->
+                            <div id="branding-div" class="branding-region region navbar-expand-lg">
+                                <div class="inner justify-content-between">
+                                    {{ page.branding }}
+                                </div>
+                            </div> 
+                                <!-- #branding -->
+
+                                <!-- header block -->
+                            <div id="header-div" class="header-region region">
+                                <div class="inner justify-content-between">
+                  
+                                    <div class="col col-12 block block-block outline clearfix">
+                                      <div class="inner">
+                                        <h2 class="visually-hidden">Header Region Block</h2>
+                                        <div class="content">
+                                          <div class="body">
+                                            <h4>This is a sample of how a block could look in the header region. Often you'll have social links, phone numbers and other very important detail in this block. It uses the outline block style to demonstrate that styling. <strong>This is the header region.</strong></h4>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div> <!-- end block -->
+                                    
+                                </div>
+                            </div> 
+                            <!-- #header -->
+
+                        </div> <!-- .header-inner -->
+                    </div> <!-- #header-container -->
+                {% endif %}
+          
+                {% if not page.branding %} 
+                    <div id="header-container" class="container row-fluid">
+                        <div class="inner">
+                            <!-- header block -->
+                            <div id="header-div" class="header-region region navbar-expand-lg">
+                                <div class="inner row justify-content-between">
+                  
+                  
+                                    <div class="col col-12 block block-block outline clearfix">
+                                      <div class="inner">
+                                        <h2 class="visually-hidden">Header Region Block</h2>
+                                        <div class="content">
+                                          <div class="body">
+                                            <h4>This is a sample of how a block could look in the header region. Often you'll have social links, phone numbers and other very important detail in this block. It uses the outline block style to demonstrate that styling. <strong>This is the header region.</strong></h4>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div> <!-- end block -->
+                                    
+                                    
+                                </div>
+                            </div> <!-- #header -->
+
+                        </div> <!-- .header-inner -->
+                    </div> <!-- #header-container -->
+                {% endif %} 
+              
+              
+                </div> <!-- .header-wrapper-inner -->
+              </header> <!-- #header-wrapper -->
+
+            </div><!-- .top-wrapper .wo-navigation -->
+
+
+            {% if page.main_menu %}
+              <nav class="wrapper navbar main-menu-wrapper navbar-expand-lg d-none d-sm-none d-md-none d-lg-block d-xl-block" data-toggle="affix">
+                <a href="{{ url('<front>') }}" class="small_logo">
+                  <img src="{{ base_path }}{{ active_theme_path() }}/images/logo-icon.svg" alt="Home" height="20px" width="20px">
+                </a>
+
+                <div id="main-menu-wrapper" class="navbar-collapse collapse navbar navbar-expand-sm navbar-light" >
+                  <div class="container">
+                    <div class="inner" style="width: 100%;">
+                      <div id="main-menu-container">
+                        <div class="inner row justify-content-center align-items-center">
+                          {{ page.main_menu }}
+                        </div>
+                      </div> <!-- #main_menu-container -->
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            {% endif %}
+          </div><!-- .top-wrapper .w-navigation-->
+
+
+          
+            <section id="banner-wrapper" class="wrapper banner-wrapper banner-group section-group">
+              <div class="inner">
+                <div id="banner-container" class="container-fluid">
+                  <div id="banner" class="region clearfix">
+                    <div class="inner">
+  
+                    <div class="col col-12 block block-block secondary clearfix">
+                      <div class="inner">
+                        <h2 class="visually-hidden">Banner Region Block</h2>
+                        <div class="content">
+                          <div class="body">
+                            <h4>This is a sample of how a block could look in the banner region. This region is full-width and is generally used to show a banner image. The secondary block style has been added but typically you'd have a full-width image or a hero banner. <strong>This is the banner region.</strong></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!-- end block -->
+                    
+                    </div><!-- .inner -->
+                  </div> <!-- #banner -->
+                </div>  <!-- #banner-container -->
+              </div>
+            </section>
+           
+    
+
+          <div id="content-area-wrapper1" class="content-area-wrapper">
+            <div class="inner">
+          
+
+                <section id="preface-wrapper" class="wrapper preface-wrapper preface-group section-group">
+                  <div id="preface-container" class="container">
+                    <div id="preface" class="row region clearfix">
+                      <div class="inner col-md-12">
+  
+                      <div class="col col-12 block block-block clearfix">
+                        <div class="inner">
+                          <h2 class="visually-hidden">Preface Region Block</h2>
+                          <div class="content">
+                            <div class="body">
+                              <h4>This is a sample of how a block could look in the preface region. This region is the standard width. This shows the default styling. <strong>This is the preface region.</strong></h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div> <!-- end block -->
+                      
+                      </div><!-- .inner -->
+                    </div> <!-- #preface -->
+                  </div>  <!-- #preface-container -->
+                </section>
+
+
+
+
+                <section id="content_top-wrapper" class="wrapper content-top-wrapper content-top-group section-group">
+                  <div id="content-top-container" class="container">
+                    <div id="content-top" class="row region clearfix">
+                      <div class="inner col-md-12">
+  
+                      <div class="col col-12 block block-block clearfix">
+                        <div class="inner">
+                          <h2 class="visually-hidden">Content Top Region Block</h2>
+                          <div class="content">
+                            <div class="body">
+                              <h4>This is a sample of how a block could look in the content top region. This region is the standard width. This shows the default styling. <strong>This is the content top region.</strong></h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div> <!-- end block -->
+                      
+                      </div><!-- .inner -->
+                    </div> <!-- #content-top -->
+                  </div>  <!-- #content-top-container -->
+                </section>
+
+
+
+              <div id="content-wrapper" class="wrapper row-fluid content-wrapper main-content-group section-group {{ statusClass }}">
+                <div id="content-container" class="container">
+                  <div class="inner row">
+
+                    <div class="col col-lg-8 content-region">
+                      <main role="main">
+                        <a id="main-content"></a>
+                          <div class="inner">
+                            <div class="layout-content">
+                              
+                              <div id="block-breadcrumbs" class="contextual-region col block block-system block-system-breadcrumb-block clearfix">
+                                <div class="inner">
+                                    <div class="content">
+                                <nav role="navigation" aria-labelledby="system-breadcrumb">
+                                  <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+                                  <ol>
+                                        <li>
+                                                <a href="/">Home</a>
+                                            </li>
+                                        <li>
+                                                <a href="/tm-support">Tribute Media Support</a>
+                                            </li>
+                                      </ol>
+                                </nav>
+
+                                  </div>
+                                </div></div> <!-- breadcrumb end -->
+                              
+                              
+                              <div id="block-narwhal-page-title" class="contextual-region col block block-core block-page-title-block clearfix">
+                                <div class="inner">
+                             <h1 class="title">All Regions</h1>
+                             <p><a href="/tm-support/typography">Typography</a>&nbsp;• <a href="/tm-support/content-block-types">Content &amp; Block Types</a> • <a href="/tm-support/icons">Iconography</a> • <a href="/tm-support/all-regions">Block Regions</a></p>
+                             <p>
+                               
+                               <p><a class="icon-videocam" data-toggle="modal" data-target="#allregions-video">Regions and blocks overview.</a></p>
+                               
+                               
+                               This page demonstrates how the block regions work. This section you are reading now is the main content area. For simplicity in this presentation, we have turned off the edit tabs so it's a better reflection of what a site visitor might see.
+                               <h2>Sample Heading</h2>
+                               <p>In addition, this page demonstrates how a few of the typographical elements might fit in with each other. The paragraph is showing how an H2 heading might look with it's line height and relative size. If you are curious to see a simplified version of how the blocks all fit together you can visit <a href="/admin/structure/block/demo/narwhal">the block region demonstration page</a>.
+                                 <h3>Just an H3 Heading</h3>
+                                 <p>The paragraph doesn't really provide any additional information. It's only purpose is to make the page longer. If you are reading this then you are a go-getter. You are one to push beyond the limits. For that, I commend you. If you aren't reading this, I don't like you. But, that won't matter, because you'll never know it because you didn't read this.</p>
+                               
+                             </p>
+                           </div>
+                         </div>
+                             
+                             {# page.content #}
+                          </div><!-- .layout-content -->
+                        </div>
+                      </main> <!-- .content-region -->
+                    </div>  
+
+
+                      <div class="col-lg-4">
+                        <aside class="sidebar-second sidebar region layout-sidebar-second" role="complementary">
+                          <div class="inner">
+  
+                            <div class="col col-12 block block-block clearfix">
+                              <div class="inner">
+                                <h2 class="visually-hidden">Sidebar Region Block</h2>
+                                <div class="content">
+                                  <div class="body">
+                                    <h4>This is a sample of how a block could look in the sidebar region. This region is only the width of the sidebar but is full width on mobile devices. This shows the default styling. <strong>This is the sidebar region.</strong></h4>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> <!-- end block -->
+  
+                            <div class="col col-12 block block-block callout clearfix">
+                              <div class="inner">
+                                <h2 class="visually-hidden">Sidebar Region Block 2</h2>
+                                <div class="content">
+                                  <div class="body">
+                                    <h4>Sidebars often have multiple blocks. This shows how they might stack. This shows the callout styling to demonstrate that styling. <strong>This is the sidebar region.</strong></h4>
+                                  </div>
+                                </div>
+                              </div>
+                            </div> <!-- end block -->
+                            
+                          </div> <!-- .inner -->
+                        </aside>  <!-- #sidebar-second -->
+                      </div>  
+
+
+                  </div> <!-- inner row -->
+                </div> <!-- #content-container -->
+              </div> <!-- #content-wrapper -->
+
+
+
+                <section id="content-bottom-wrapper" class="wrapper content-bottom-wrapper content-bottom_group section-group">
+                  <div id="content-bottom-container" class="container">
+                    <div id="content-bottom" class="row region clearfix">
+                      <div class="inner col-md-12">
+
+                        <div class="col col-12 block block-block clearfix">
+                          <div class="inner">
+                            <h2 class="visually-hidden">Content Bottom Region Block</h2>
+                            <div class="content">
+                              <div class="body">
+                                <h4>This is a sample of how a block could look in the content bottom region. This region is the standard width. This shows the default styling. <strong>This is the content bottom region.</strong></h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div> <!-- end block -->
+                        
+                      </div><!-- .inner -->
+                    </div> <!-- #content_bottom -->
+                  </div>  <!-- #content-bottom-container -->
+                </section>
+
+
+
+            </div><!-- .inner --> 
+          </div><!-- #content-area-wrapper -->    
+    
+
+
+            <section id="postscript-wrapper" class="wrapper postscript-wrapper postscript-group section-group">
+              <div id="postscript-container" class="container">
+                <div id="postscript" class="row region clearfix">
+                  <div class="inner col-md-12">
+
+                    <div class="col col-12 block block-block clearfix">
+                      <div class="inner">
+                        <h2 class="visually-hidden">Postscript Region Block</h2>
+                        <div class="content">
+                          <div class="body">
+                            <h4>This is a sample of how a block could look in the postscript region. This region is the standard width. This shows the default styling. <strong>This is the postscript region.</strong></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!-- end block -->
+                    
+                  </div><!-- .inner -->
+                </div> <!-- #postscript -->
+              </div>  <!-- #postscript-container -->
+            </section>
+
+
+
+
+            <section id="postscript1-wrapper" class="wrapper dark-region postscript-wrapper postscript1-wrapper postscript-group section-group">
+              <div id="postscript1-container" class="container">
+                <div id="postscript1" class="row region clearfix">
+                  <div class="inner col-md-12">
+
+                    <div class="col col-12 block block-block clearfix">
+                      <div class="inner">
+                        <h2 class="visually-hidden">Postscript Dark Region Block</h2>
+                        <div class="content">
+                          <div class="body">
+                            <h4>This is a sample of how a block could look in the postscript dark region. This region is the standard width. This shows the default styling. <strong>This is the postscript dark region.</strong></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div> <!-- end block -->
+                    
+                  </div><!-- .inner -->
+                </div> <!-- #postscript1 -->
+              </div>  <!-- #postscript1-container -->
+            </section>
+
+
+
+          <footer  class="wrapper footer footer-wrapper footer-group section-group clearfix">
+            <div id="footer-wrapper">
+              <!-- <div class="inner"> -->
+
+                <div class="footer-region container">
+
+                  <div class="col col-12 block block-block clearfix">
+                    <div class="inner">
+                      <h2 class="visually-hidden">Footer Region Block</h2>
+                      <div class="content">
+                        <div class="body">
+                          <h4>This is a sample of how a block could look in the footer region. This region is the standard width. This shows the default styling. <strong>This is the footer region.</strong></h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- end block -->
+                  
+                </div>
+
+            </div> <!-- #footer-wrapper -->
+          </footer>
+
+        </div><!-- .page-inner -->
+
+
+      </div> <!-- .page -->
+    </div> <!-- .narhwal -->
+</div>
+
+{% if page.mob %}
+  <div class="menu-overlay"></div>
+  <div class="mobile-offcanvas">
+    {{ page.mob }}
+  </div>
+{% endif %}
+
+{% if page.to_top %}
+    <div id="back-to-top-wrapper">
+        <div class="inner">
+            {{ page.to_top }}
+        </div>
+    </div>
+    
+{% endif %}
+
+
+
+<div class="modal fade" id="allregions-video" tabindex="-1" role="dialog" aria-labelledby="icon-text" aria-hidden="true">
+<div data-dismiss="modal" aria-label="Close" class="documentation-modal">Click outside the video to close.</div>
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    
+    <div class="modal-content">
+      <!-- <div class="modal-body"> -->
+        <video style="width:800px;max-width:100%;" controls controlsList="nodownload">
+        <source src="/sites/default/files/imce/video/allregions-video.mp4" type="video/mp4"></source>
+      </video>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,601 @@
+{% if node %}
+  {% if node.status.value == 0 %}
+    {% set statusClass = "node--unpublished" %}
+  {% endif %}
+{% endif %}
+<div class="body-inner inner {% if page.overlay_menu %}overlay-menu{% endif %}">
+    <div id="top" class="narwhal narwhal-2020 d8 {{ node.field_landing_page_navigation.value }} {{ node.field_field_form_orientation.value }}">
+    {% if page.overlay_menu %}
+          <div id="overlay-bg"></div>
+    {% endif %}
+      <div class="page">
+	  
+        <div class="page-inner">
+
+
+        {% if page.help %}
+          <div id="help-wrapper" class="wrapper row-fluid help-wrapper help_group section-group">
+            <div class="inner">
+              <div id="help-container" class="container row-fluid">
+                <div class="inner">
+                  {{ page.help }}
+                </div>
+              </div> <!-- #help-container -->
+            </div>
+          </div> <!-- .help-wrapper -->
+        {% endif %}
+    
+    
+        <div class="header-banner-wrapper">
+          
+          {% if node.field_background_image_location.value == "header-banner-wrapper" %}
+            {% if node.field_background_video.value %}
+              {% set video_bg = node.field_background_video.value %}
+              {% set video_id = node.field_background_video.value|split('/')|last %}
+                <div class="inner hero-banner-video-wrapper">
+                  {# Vimeo - banner region #}
+                  <iframe class="hero-banner-video header-banner-wrapper {{ node.field_video_visibility.value }}" src="https://player.vimeo.com/video/{{ video_id }}?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" allow="autoplay; fullscreen" ></iframe>
+                </div>
+            {% endif %}
+          {% endif %}
+          
+          <div class="top-wrapper w-navigation">
+            <div class="top-wrapper wo-navigation">
+
+              {% if page.topper %}
+                <section id="topper-wrapper" class="wrapper row-fluid topper-wrapper topper-group section-group">
+                  <div class="inner">
+                    <div id="topper-container" class="container row-fluid">
+                      <div id="topper" class="region clearfix">
+                        <div class="inner row">
+                        {{ page.topper }}
+                        </div><!-- .inner -->
+                      </div> <!-- #topper -->
+                    </div>  <!-- #topper-container -->
+                  </div>
+                </section>
+               {% endif %}
+
+              <header id="header-wrapper" class="wrapper row-fluid header-wrapper section-group" role="banner">
+                <div class="inner">
+                
+        
+                {% if page.branding %}
+                    <div id="header-container" class="container row-fluid branding">
+                        <div class="inner">
+                            <!-- branding block -->
+                            <div id="branding-div" class="branding-region region navbar-expand-lg">
+                                <div class="inner justify-content-between">
+                                    {{ page.branding }}
+                                </div>
+                            </div> 
+                                <!-- #branding -->
+
+                                <!-- header block -->
+                            <div id="header-div" class="header-region region">
+                                <div class="inner justify-content-between">
+                                    {{ page.header }}
+                                </div>
+                            </div> 
+                            <!-- #header -->
+
+                        </div> <!-- .header-inner -->
+                    </div> <!-- #header-container -->
+                {% endif %}
+          
+                {% if not page.branding %} 
+                    <div id="header-container" class="container row-fluid">
+                        <div class="inner">
+                            <!-- header block -->
+                            <div id="header-div" class="header-region region navbar-expand-lg">
+                                <div class="inner row justify-content-between">
+                                    {{ page.header }}
+                                </div>
+                            </div> <!-- #header -->
+
+                        </div> <!-- .header-inner -->
+                    </div> <!-- #header-container -->
+                {% endif %} 
+              
+              
+                </div> <!-- .header-wrapper-inner -->
+              </header> <!-- #header-wrapper -->
+
+            </div><!-- .top-wrapper .wo-navigation -->
+
+
+            {% if page.main_menu %}
+              <nav class="wrapper navbar main-menu-wrapper navbar-expand-lg d-none d-sm-none d-md-none d-lg-block d-xl-block" data-toggle="affix">
+                <a href="{{ url('<front>') }}" class="small_logo">
+                  <img src="{{ base_path }}{{ active_theme_path() }}/images/logo-icon.svg" alt="Home" height="20px" width="20px">
+                </a>
+
+                <div id="main-menu-wrapper" class="navbar-collapse collapse navbar navbar-expand-sm navbar-light" >
+                  <div class="container">
+                    <div class="inner" style="width: 100%;">
+                      <div id="main-menu-container">
+                        <div class="inner row justify-content-center align-items-center">
+                          {{ page.main_menu }}
+                        </div>
+                      </div> <!-- #main_menu-container -->
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            {% endif %}
+          </div><!-- .top-wrapper .w-navigation-->
+    
+
+
+
+{# this prevents the region from accepting blocks if the hero banner is present #}
+
+{% set backImgLoc = node.field_background_image_location.value %}
+{% if backImgLoc == 'header-banner-wrapper' or backImgLoc == 'hero-image-wrapper' %}
+  <section id="banner-wrapper" class="wrapper banner-wrapper banner-group section-group">
+    <div class="inner">
+      <div id="banner-container" class="container-fluid">
+        <div id="banner" class="region clearfix">
+          <div class="inner">
+          <div class="block block-block col col-12">
+            <div class="hero-banner-page-wrapper align-middle {{ node.field_text_box_move_to_center.value }} {{ node.field_align_banner_text.value }} {{ node.field_link_orientation.value }} height-class">
+            
+                  <div class="hero-image-wrapper height-class">
+               {% if node.field_background_image_location.value == "hero-image-wrapper" %}
+                 {% if node.field_background_video.value %}
+                   {% set video_bg = node.field_background_video.value %}
+                   {% set video_id = node.field_background_video.value|split('/')|last %}
+                     <div class="inner hero-banner-video-wrapper">
+                       {# Vimeo - banner region #}
+                       <iframe class="hero-banner-video header-banner-wrapper {{ node.field_video_visibility.value }}" src="https://player.vimeo.com/video/{{ video_id }}?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" allow="autoplay; fullscreen" ></iframe>
+                     </div>
+                 {% endif %}
+               {% endif %}
+               
+               
+                </div> <!-- hero-image-wrapper -->
+          
+                <div class="hero-text-wrapper {{ node.field_message_vertical_position.value }}">
+                  <div class="{{ node.field_text_box_container.value }}">
+                    <div class="text-box">
+                      <div class="inner">
+                      <div class="{{ node.field_align_banner_text.value }} {{ node.field_dark_or_light_text.value }}">
+
+                          {% if node.field_main_title.value %}
+                              <{{ node.field_title_text_style.value }} class="hero-title">{{ node.field_main_title.value }}</{{ node.field_title_text_style.value }}>
+                          {% endif %} {# h1 or h2 #}
+
+                          {% if node.field_sub_text  %}
+                              <div class="hero-subtitle">
+                                  {{ node.field_sub_text.value|raw }}
+                              </div>
+                          {% endif %}
+
+                          {% set buttons = node.field_cta_button_link %}
+                          {% for button in buttons %}
+                            {% set ctaClass = button.options.attributes.class|join(' ') %}
+                            <div class="hero-cta cta-{{ loop.index }}">
+                              <a href="{{ button.url }}" class="{{ ctaClass }}">
+                                {{ button.title }}
+                              </a>
+                            </div>
+                          {% endfor %}
+
+                      </div>
+                  </div>
+                </div> <!-- text-box -->
+              </div>
+            </div>
+
+            
+            </div> <!-- hero-image-wrapper-2 -->
+          </div>
+        </div>
+          </div><!-- .inner -->
+        </div> <!-- #banner -->
+      </div>  <!-- #banner-container -->
+    </div>
+  </section>
+
+  {# hide page title h1 if h1 is in banner #}
+  {% if backImgLoc == 'header-banner-wrapper' or backImgLoc == 'hero-image-wrapper' %}
+    {% if node.field_title_text_style.value == 'h1' %}
+        <style>
+          h1.title {display:none;}
+        </style>
+    {% else %}
+  
+    {% endif %}
+  {% else %} 
+  {% endif %}
+  
+  <style>
+       
+    {% set heightVar = node.field_height_in_pixels.value %}          
+  .height-class{height:{{ heightVar }}px;overflow:hidden;}
+
+  .hero-banner-page-wrapper .text-box { {{ node.field_text_box_position.value }} width:{{ node.field_text_box_width.value }};background-color:{{ node.field_text_box_background_color.value }}; }
+
+  .text-box .inner { {{ node.field_text_box_padding.value }} }
+ 
+
+  .{{ node.field_background_image_location.value }} {
+    background-color:#{{ node.field_background_color.value }} !important;
+  }
+  
+.{{ node.field_background_image_location.value }} {
+  {% if node.field_image_xl_screen_1200_1800p.entity.uri.value %} background-image:url('{{ node.field_image_xl_screen_1200_1800p.entity.uri.value|image_style('srcset_xl_1200_1800') }}');{% endif %}
+  background-repeat:no-repeat;
+  background-position:center {{ node.field_background_position.value }};
+  background-attachment: {{ node.field_background_attachment.value }};
+  background-size:cover;
+  }
+  
+  
+  iframe.hero-banner-video {
+    width:calc({{ heightVar }}vw / 4);
+    height:calc({{ heightVar }}vw / 7.08);
+    
+    {% if heightVar > 700 %}
+    left:25%;
+    {% elseif heightVar > 600 %}
+    left:35%;
+    {% else %}
+    left:50%;
+    {% endif %}
+  }
+  
+  iframe.hero-banner-video.hero-image-video-wrapper  {
+    width:calc({{ heightVar }}vw / 3.33);
+    height:calc({{ heightVar }}vw / 5.8941);
+    {% if heightVar > 700 %}
+    left:40%;
+    {% elseif heightVar > 600 %}
+    left:45%;
+    {% else %}
+    left:50%;
+    {% endif %}
+    top:-200px
+  }
+/* ================= */
+/* = Media Queries = */
+/* ================= */
+
+  @media (max-width:1199px){
+    .{{ node.field_background_image_location.value }} {
+      {% if node.field_image_lg_screen_992_1200px.entity.uri.value %} 
+      background-image:url('{{ node.field_image_lg_screen_992_1200px.entity.uri.value|image_style('srcset_lg_992_1200') }}');
+      {% endif %}
+    }
+    
+    iframe.hero-banner-video {
+      width:calc({{ heightVar }}vw / 3.33);
+      height:calc({{ heightVar }}vw / 5.8941);
+    }
+    iframe.hero-banner-video.hero-image-video-wrapper  {
+      width:calc({{ heightVar }}vw / 2.85);
+      height:calc({{ heightVar }}vw / 5.0445);
+    }
+    
+  }
+  @media (max-width:991px){
+    .{{ node.field_background_image_location.value }} {
+      {% if node.field_image_md_screen_768_992px.entity.uri.value %}
+      background-image:url('{{ node.field_image_md_screen_768_992px.entity.uri.value|image_style('srcset_md_768_992') }}');
+      {% endif %}
+    }
+    
+    iframe.hero-banner-video {
+      width:calc({{ heightVar }}vw / 2.85);
+      height:calc({{ heightVar }}vw / 5.0445);
+    }
+    iframe.hero-banner-video.hero-image-video-wrapper  {
+      width:calc({{ heightVar }}vw / 2.5);
+      height:calc({{ heightVar }}vw / 4.425);
+    }
+    
+  }
+  @media (max-width:767px){
+    .{{ node.field_background_image_location.value }} {
+      {% if node.field_image_sm_screen_576_768px.entity.uri.value %}
+      background-image:url('{{ node.field_image_sm_screen_576_768px.entity.uri.value|image_style('srcset_sm_576_768') }}');
+      {% endif %}
+    }
+    iframe.hero-banner-video {
+      width:calc({{ heightVar }}vw / 2.5);
+      height:calc({{ heightVar }}vw / 4.425);
+    }
+    iframe.hero-banner-video.hero-image-video-wrapper  {
+      width:calc({{ heightVar }}vw / 1.42);
+      height:calc({{ heightVar }}vw / 2.5134);
+    }
+  }
+  @media (max-width:575px){
+    .{{ node.field_background_image_location.value }} {
+      {% if node.field_image_xs_screen_576px.entity.uri.value %}
+      background-image:url('{{ node.field_image_xs_screen_576px.entity.uri.value|image_style('srcset_xs_0_576') }}');
+      {% endif %}
+    }
+    iframe.hero-banner-video {
+      width:calc({{ heightVar }}vw / 1.42);
+      height:calc({{ heightVar }}vw / 2.5134);
+    }
+    iframe.hero-banner-video.hero-image-video-wrapper  {
+      width:calc({{ heightVar }}vw / 1);
+      height:calc({{ heightVar }}vw / 1.77);
+    }
+  }
+  </style>
+  
+
+ {% else %}
+ 
+  {# if image in in banner region then blocks won't print in banner region #}
+ 
+     {% if node.field_banner_image_location.0.value == 'image-banner-region' %}
+       <section id="banner-wrapper" class="wrapper field-banner-wrapper banner-wrapper banner-group section-group">
+         <div class="inner">
+           <div id="banner-container" class="container-fluid">
+             <div id="banner" class="region clearfix">
+               <div class="inner">
+                 {{ node.field_image|view }}
+               </div><!-- .inner -->
+             </div> <!-- #banner -->
+           </div>  <!-- #banner-container -->
+         </div>
+       </section>
+
+     {% else %}
+     
+           {# banner region populated from blocks #}
+           {% if page.banner %}
+             <section id="banner-wrapper" class="wrapper banner-wrapper banner-group section-group">
+               <div class="inner">
+                 <div id="banner-container" class="container-fluid">
+                   <div id="banner" class="region clearfix">
+                     <div class="inner">
+                     {{ page.banner }}
+                     </div><!-- .inner -->
+                   </div> <!-- #banner -->
+                 </div>  <!-- #banner-container -->
+               </div>
+             </section>
+            {% endif %} {# end the banner region from blocks #}
+
+      {% endif %} {# end if image is in image-banner-region #}
+
+ {% endif %} {# end if hero banner is present #}
+
+       
+
+    </div> <!-- .header-banner-wrapper -->
+       
+          <div id="content-area-wrapper1" class="content-area-wrapper">
+            <div class="inner">
+          
+              {% if page.preface %}
+                <section id="preface-wrapper" class="wrapper preface-wrapper preface-group section-group">
+                  <div id="preface-container" class="container">
+                    <div id="preface" class="row region clearfix">
+                      <div class="inner col-md-12">
+                      {{ page.preface }}
+                      </div><!-- .inner -->
+                    </div> <!-- #preface -->
+                  </div>  <!-- #preface-container -->
+                </section>
+              {% endif %}
+
+
+              {% if page.content_top %}
+                <section id="content_top-wrapper" class="wrapper content-top-wrapper content-top-group section-group">
+                  <div id="content-top-container" class="container">
+                    <div id="content-top" class="row region clearfix">
+                      <div class="inner col-md-12">
+                      {{ page.content_top }}
+                      </div><!-- .inner -->
+                    </div> <!-- #content-top -->
+                  </div>  <!-- #content-top-container -->
+                </section>
+              {% endif %}
+
+
+              <div id="content-wrapper" class="wrapper row-fluid content-wrapper main-content-group section-group {{ statusClass }}">
+                <div id="content-container" class="container">
+                  <div class="inner row">
+                    {# Content #}
+                    {%
+                      set content_classes = [
+                        page.sidebar_second ? 'col-lg-8 content-region',
+                        page.sidebar_second is empty ? 'col-lg-12 content-region'
+                      ]
+                    %}
+
+                    <div {{ content_attributes.addClass(content_classes) }}>
+                      <main role="main">
+                        <a id="main-content"></a>
+                          <div class="inner">
+                            <div class="layout-content">
+                            {# {{ node.field_image.value }} #}
+                              {{ page.content }}
+                          </div><!-- .layout-content -->
+                        </div>
+                      </main> <!-- .content-region -->
+                    </div>  
+
+                    {% if page.sidebar_second %}
+                      <div class="col-lg-4">
+                        <aside class="sidebar-second sidebar region layout-sidebar-second" role="complementary">
+                          <div class="inner">
+                            {{ page.sidebar_second }}
+                          </div> <!-- .inner -->
+                        </aside>  <!-- #sidebar-second -->
+                      </div>  
+                    {% endif %}
+
+                  </div> <!-- inner row -->
+                </div> <!-- #content-container -->
+              </div> <!-- #content-wrapper -->
+
+
+              {% if page.content_bottom %}
+                <section id="content-bottom-wrapper" class="wrapper content-bottom-wrapper content-bottom_group section-group">
+                  <div id="content-bottom-container" class="container">
+                    <div id="content-bottom" class="row region clearfix">
+                      <div class="inner col-md-12">
+                        {{ page.content_bottom }}
+                      </div><!-- .inner -->
+                    </div> <!-- #content_bottom -->
+                  </div>  <!-- #content-bottom-container -->
+                </section>
+              {% endif %}
+
+
+            </div><!-- .inner --> 
+          </div><!-- #content-area-wrapper -->    
+    
+    {% if page.tmdocumentation %}
+      <section id="tmdocumentation-wrapper" class="wrapper postscript-wrapper postscript-group section-group">
+        <div id="tmdocumentation-container" class="container">
+          <div id="tmdocumentation" class="row region clearfix">
+            <div class="inner col-md-12">
+              {{ page.tmdocumentation }}
+            </div><!-- .inner -->
+          </div> <!-- #tmdocumentation -->
+        </div>  <!-- #tmdocumentation-container -->
+      </section>
+    {% endif %}
+    
+    {% if page.tmdocumentationfw %}
+      <section id="tmdocumentationfw-wrapper" class="wrapper banner-wrapper banner-group section-group">
+        <div class="inner">
+          <div id="tmdocumentationfw-container" class="container-fluid">
+            <div id="tmdocumentationfw" class="region clearfix">
+              <div class="inner">
+              {{ page.tmdocumentationfw }}
+              </div><!-- .inner -->
+            </div> <!-- #tmdocumentationfw -->
+          </div>  <!-- #tmdocumentationfw-container -->
+        </div>
+      </section>
+     {% endif %}
+     
+
+          {% if page.postscript %}
+            <section id="postscript-wrapper" class="wrapper postscript-wrapper postscript-group section-group">
+              <div id="postscript-container" class="container">
+                <div id="postscript" class="row region clearfix">
+                  <div class="inner col-md-12">
+                    {{ page.postscript }}
+                  </div><!-- .inner -->
+                </div> <!-- #postscript -->
+              </div>  <!-- #postscript-container -->
+            </section>
+          {% endif %}
+
+
+          {% if page.postscript1 %}
+            <section id="postscript1-wrapper" class="wrapper dark-region postscript-wrapper postscript1-wrapper postscript-group section-group">
+              <div id="postscript1-container" class="container">
+                <div id="postscript1" class="row region clearfix">
+                  <div class="inner col-md-12">
+                    {{ page.postscript1 }}
+                  </div><!-- .inner -->
+                </div> <!-- #postscript1 -->
+              </div>  <!-- #postscript1-container -->
+            </section>
+          {% endif %}
+		  
+          <footer  class="wrapper footer footer-wrapper footer-group section-group clearfix">
+            <div id="footer-wrapper">
+              <!-- <div class="inner"> -->
+              {% if page.footer %}
+                <div class="footer-region container">
+                  {{ page.footer }}
+                </div>
+              {% endif %}
+            </div> <!-- #footer-wrapper -->
+          </footer>
+
+        </div><!-- .page-inner -->
+
+
+      </div> <!-- .page -->
+    </div> <!-- .narhwal -->
+</div>
+
+{% if page.overlay_menu %}
+ 
+ 
+ 
+	<section id="overlay-menu-wrapper" class="overlay-menu-wrapper wrapper banner_group overlay-menu">
+  	  <div class="inner">
+        
+        
+        {% if page.branding %}
+          <!-- begin overlay menu page branding and header -->
+            <div id="om-header-container" class="container row-fluid branding">
+                <div class="inner">
+                    <!-- branding block -->
+                    <div id="om-branding-div" class="branding-region region">
+                        <div class="inner justify-content-between">
+                            {{ page.om_branding }}
+                        </div>
+                    </div> 
+                        <!-- #branding -->
+
+                        <!-- header block -->
+                    <div id="om-header-div" class="header-region region">
+                        <div class="inner justify-content-between">
+                            {{ page.om_header }}
+                        </div>
+                    </div> 
+                    <!-- #header -->
+
+                </div> <!-- .header-inner -->
+            </div> <!-- #header-container -->
+        {% endif %}
+
+        {% if not page.branding %} 
+          <!-- begin overlay menu header only -->
+            <div id="om-header-container" class="container row-fluid">
+                <div class="inner">
+                    <!-- header block -->
+                    <div id="om-header-div" class="header-region region">
+                        <div class="inner row justify-content-between">
+                            {{ page.om_header }}
+                        </div>
+                    </div> <!-- #header -->
+
+                </div> <!-- .header-inner -->
+            </div> <!-- #header-container -->
+        {% endif %}
+        
+        
+        
+    	  <div id="overlay-menu-container" class="container-fluid">
+      		<div id="overlay-menu" class="region clearfix">
+        		<div class="inner row">
+        			{{ page.overlay_menu }}
+        		</div><!-- .inner -->
+      	  </div> <!-- #overlay-menu -->
+    	</div>  <!-- #overlay-menu-container -->
+  	</div> <!-- #overlay-menu-wrapper .inner -->
+	</section> <!-- #overlay-menu-wrapper -->
+ {% endif %}
+
+{% if page.mob %}
+  <div class="menu-overlay"></div>
+  <div class="mobile-offcanvas">
+    {{ page.mob }}
+  </div>
+{% endif %}
+
+{% if page.to_top %}
+    <div id="back-to-top-wrapper">
+        <div class="inner">
+            {{ page.to_top }}
+        </div>
+    </div>
+    
+{% endif %}
+

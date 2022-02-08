@@ -1,0 +1,44 @@
+
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% if content.field_alternative_url[0]['#url'] %}
+        {% set shareurl = content.field_alternative_url[0]['#url'] %}
+    {% else %}
+        {% set shareurl = url('<current>') %}
+{% endif %}
+
+{% block paragraph %}
+
+    {% block content %}
+        <div class="sharing-block {{ content.field_link_style[0] }}">
+      {% if content.field_sharing_text %}<h4> {{ content.field_sharing_text[0] }}</h4>{% endif %}
+        {% if paragraph.field_facebook.value %}
+            <a target="_blank" href="http://www.facebook.com/share.php?u={{ shareurl }}" class="facebook social-link {{ content.field_link_style[0] }}">Facebook</a>
+        {% endif %}
+        {% if paragraph.field_twitter.value %}
+            <a target="_blank" href="https://twitter.com/intent/tweet?text=Look%20what%20I%20found!%20-%20{{ shareurl }}" class="twitter social-link {{ content.field_link_style[0] }}">Twitter</a>
+        {% endif %}
+        {% if paragraph.field_linkedin.value %}
+            <a target="_blank" href="http://www.linkedin.com/shareArticle?mini=true&url={{ shareurl }}" class="linkedin social-link {{ content.field_link_style[0] }}">linkedin</a>
+        {% endif %}
+        {% if paragraph.field_pinterest.value %}
+            <a target="_blank" href="http://pinterest.com/pin/create/button/?url={{ shareurl }}" class="pinterest social-link {{ content.field_link_style[0] }}">Pinterest</a>
+        {% endif %}
+        {% if paragraph.field_email.value %}
+            <a href="mailto:?subject=Check this out {{ shareurl }} &body=Check out this site " class="email social-link {{ content.field_link_style[0] }}">email</a>
+        {% endif %}
+            
+            
+
+      </div>
+    {% endblock %}
+
+{% endblock paragraph %}

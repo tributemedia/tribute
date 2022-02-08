@@ -1,0 +1,30 @@
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      {% if paragraph.field_section_visibility.value != 'pillar-hidden' %}
+
+            
+        <tr id="paragraph-id-{{ paragraph.id() }}" class="paragraph-id-{{ paragraph.id() }} banner definition-section">
+            <td class="item-title">{{ content.field_item_title }}</td>
+            <td class="item-definition">{{ content.field_item_definition }}</td>
+        
+        </tr>
+        
+                
+
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
+
+
+{# {{ paragraph.field_section_visibility.value }} #}

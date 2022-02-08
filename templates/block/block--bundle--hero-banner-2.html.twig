@@ -1,0 +1,89 @@
+
+{%
+  set classes = [
+    'col',
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+{%
+  set content_classes = [
+    'content',
+    'hero-banner',
+  ]
+%}
+<div {{ attributes.addClass(classes) }}>
+
+  {{ title_suffix }}
+  {% block content %}
+    <div {{ content_attributes.addClass(content_classes) }}>
+        <div class="hero-image-wrapper-2 align-middle {{ attributes.id }} {{ content['#block_content'].field_align_banner_text.value }}  height-class">
+            
+              <div class="hero-image-wrapper height-class">
+                <picture>
+                    {% if content.field_image_xs_screen_576px[0] %}<source media="(max-width: 576px)" srcset="{{ file_url(content.field_image_xs_screen_576px['#items'].entity.uri.value) }}">{% endif %}
+                    {% if content.field_image_sm_screen_576_768px[0] %}<source media="(max-width: 768px)" srcset="{{ file_url(content.field_image_sm_screen_576_768px['#items'].entity.uri.value) }}">{% endif %}
+                    {% if content.field_image_md_screen_768_992px[0] %}<source media="(max-width: 992px)" srcset="{{ file_url(content.field_image_md_screen_768_992px['#items'].entity.uri.value) }}">{% endif %}
+                    {% if content.field_image_lg_screen_992_1200px[0] %}<source media="(max-width: 1200px)" srcset="{{ file_url(content.field_image_lg_screen_992_1200px['#items'].entity.uri.value) }}">{% endif %}
+                    {% if content.field_image_xl_screen_1200_1800p[0] %}<source media="(min-width: 1201px)" srcset="{{ file_url(content.field_image_xl_screen_1200_1800p['#items'].entity.uri.value) }}">{% endif %}
+                    <img alt="{{ content['#block_content'].field_image_alt_tag.value|raw }}" src="{{ file_url(content.field_image_xl_screen_1200_1800p['#items'].entity.uri.value) }}">
+                </picture>
+            </div> <!-- hero-image-wrapper -->
+          
+            <div class="hero-text-wrapper {{ content['#block_content'].field_vertical_position.value }}">
+                <div class="container {{ content['#block_content'].field_align_banner_text.value }} {{ content['#block_content'].field_dark_or_light_text.value }}">
+
+                    {% if content['#block_content'].field_main_title.value %}
+                        <{{ content['#block_content'].field_title_text_style.value }} class="hero-title">{{ content['#block_content'].field_main_title.value }}</{{ content['#block_content'].field_title_text_style.value }}>
+                    {% endif %} {# h1 or h2 #}
+
+                    {% if content.field_sub_text[0]  %}
+                        <div class="hero-subtitle">
+                            {{ content['#block_content'].field_sub_text.value|raw }}
+                        </div>
+                    {% endif %}
+
+                    {% if content.field_button_link[0] %}
+                        <div class="hero-cta">
+                            {{ content.field_button_link[0] }}
+                        </div>
+                    {% endif %}
+    
+                    {% if content.field_button_link[1] %}
+                        <div class="hero-cta">
+                            {{ content.field_button_link[1] }}
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+            
+
+            
+        </div> <!-- hero-image-wrapper-2 -->
+      </div>
+
+      
+        <style>
+        .hero-image-wrapper-2 {position:relative;}
+        .hero-image-wrapper-2 .hero-image-wrapper img {width:auto !important;max-width:unset;position:absolute;left:50%;transform:translate(-50%, 0);}
+                
+        .height-class{height:{{ content['#block_content'].field_height_in_pixels.value }}px;overflow:hidden;}
+        
+        .hero-image-wrapper-2 .hero-text-wrapper {position:absolute;}
+        .hero-image-wrapper-2 .hero-text-wrapper.h-100 {
+          top:50%;
+          transform:translate(0, -50%);
+          height:auto !important;}
+        .hero-image-wrapper-2 .hero-text-wrapper.top-20{top:20px}
+        .hero-image-wrapper-2 .hero-text-wrapper.top-50{top:50px}
+        .hero-image-wrapper-2 .hero-text-wrapper.top-75{top:75px}
+        .hero-image-wrapper-2 .hero-text-wrapper.top-100{top:100px}
+        .hero-image-wrapper-2 .hero-text-wrapper.top-150{top:150px}
+        .hero-image-wrapper-2 .hero-text-wrapper.top-other{top:200px;}
+        </style>
+
+  
+  {% endblock %}
+</div>

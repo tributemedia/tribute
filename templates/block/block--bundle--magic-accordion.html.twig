@@ -1,0 +1,119 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main content
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'col',
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+    'magic-accordion-block'
+  ]
+%}
+
+{# set field value variables #}
+{%
+  set accordionType, hdrFontSize, descFontSize, accordionTheme, descAlignment, tabWidth = 
+    content['#block_content'].field_tabbed_accordion_view.value,
+    content.field_header_font_size.0,
+    content.field_description_font_size.0,
+    content['#block_content'].field_theme.value,
+    content['#block_content'].field_description_text_alignment.value,
+    content['#block_content'].field_width_for_tabs.value
+%}
+
+{# set conditional variable values #}
+{%
+  set accordionDescription = content.field_default_description|render
+%}
+
+<div {{ attributes.addClass(classes) }}>
+ <div class="item-{{ hdrFontSize }} description-{{ descFontSize }}">
+  {% if label %}<h2 {{ title_attributes }}>{{ label }}</h2>{% endif %}
+
+  {{ title_suffix }}
+  {{ content.body }}
+      
+{% if accordionType == 'accordion-only' %}
+         
+  <div id="accordion" class="magic-accordion-wrapper accordion-wrapper {{ accordionTheme }}">
+    {{ content.field_magic_accordion_elements }}
+  </div>
+          
+{% elseif accordionType == 'tabbed-medium' %}
+          
+          
+<div class="magic-accordion-wrapper tabbed-wrapper {{ accordionTheme }} d-none d-md-block">
+  <div class="inner">
+    <ul class="magic-accordion {{ descAlignment }} {{ tabWidth }}">
+    
+    {% if accordionDescription %} 
+      <li>
+        <div class="default description">
+          {{ content.field_default_description }}
+        </div>
+      </li>
+    {% endif %}
+    
+    {{ content.field_magic_accordion_elements }}
+    
+    </ul>
+  </div>
+  </div>
+      
+  <div id="accordion" class="magic-accordion-wrapper accordion-wrapper {{ accordionTheme }} d-md-none mob_accordion">
+    {{ content.field_magic_accordion_elements }}
+  </div>
+      
+{% else %}
+      
+<div class="magic-accordion-wrapper tabbed-wrapper {{ accordionTheme }} d-none d-lg-block">
+  <div class="inner">
+    <ul class="magic-accordion {{ descAlignment }} {{ tabWidth }}">
+    
+    {% if accordionDescription %} 
+      <li>
+        <div class="default description">
+          {{ content.field_default_description }}
+        </div>
+      </li>
+    {% endif %}
+      {{ content.field_magic_accordion_elements }}</div>
+    </ul>
+  </div>
+      
+  <div id="accordion" class="magic-accordion-wrapper accordion-wrapper {{ accordionTheme }} d-lg-none mob_accordion">
+    {{ content.field_magic_accordion_elements }}
+  </div>
+      
+{% endif %}
+</div>
+</div>

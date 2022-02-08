@@ -1,0 +1,815 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+@import url('https://fonts.googleapis.com/css?family=PT+Serif&display=swap');
+
+
+/* =================================================================== */
+/* = Default Typography and Colors for Tribute Media's Narwhal Theme = */
+/* =================================================================== */
+
+
+/** These colors should match the variables below.
+    They are listed here at the top to make it easy
+    to copy from the variable below to this here.
+    They are meant to add the hex value in the middle
+    of the branding boxes.
+    Add a font-color as needed for contrast.
+**/
+
+
+.brand-box-1::after {content:'#F37362';}
+.brand-box-2::after {content:'#FFD27A';}
+.brand-box-3::after {content:'#F9A86F';}
+.brand-box-4::after {content:'#9DD4B2';}
+.brand-box-5::after {content:'#6792CC';}
+.brand-box-6::after {content:'#343642';}
+
+.dark-region .brand-box-1 {content:'#F37362';}
+.dark-region .brand-box-2 {content:'#FFD27A';}
+.dark-region .brand-box-3 {content:'#F9A86F';}
+.dark-region .brand-box-4 {content:'#9DD4B2';}
+.dark-region .brand-box-5 {content:'#6792CC';}
+.dark-region .brand-box-6 {content:'#ffffff';}
+
+
+:root {
+  
+  /* brand colors are for reference **/
+  
+
+  --brand-color-1: #F37362; 
+  --brand-color-2: #FFD27A;
+  --brand-color-3: #F9A86F;
+  --brand-color-4: #9DD4B2;
+  --brand-color-5: #6792CC;
+  --brand-color-6: #343642;
+    
+  --dr-brand-color-1: #F37362;
+  --dr-brand-color-2: #FFD27A;
+  --dr-brand-color-3: #F9A86F;
+  --dr-brand-color-4: #9DD4B2;
+  --dr-brand-color-5: #6792CC;
+  --dr-brand-color-6: #ffffff;
+  
+  /* magic accordion */
+  --mag-acc-color-1: #cdcdcd; /* also used as background for exposed filters and search page form */
+  --mag-acc-color-2: #ffffff;
+  --mag-acc-font-1: #343642;
+  --mag-acc-font-2: #343642;
+  
+  --mag-acc-dr-color-1: #333333;
+  --mag-acc-dr-color-2: #666666;
+  --mag-acc-dr-font-1: #ffffff;
+  --mag-acc-dr-font-2: #ffffff;
+  
+  /* region backgrounds */
+  
+  --body-background:#cccccc; /* only visible if screen is wider than 1800px */
+  --page-background:#ffffff; /* generally should stay white */
+  --dr-background:#343642; /* base color when .dark-region or .transposed is applied */
+  
+  --help-wrapper:transparent;
+  --topper-wrapper:transparent;
+  --header-banner-wrapper:transparent;
+  --header-wrapper:transparent;
+  --banner-wrapper:transparent;
+  --content-area-wrapper:transparent;
+  --preface-wrapper:transparent;
+  --content-top-wrapper:transparent;
+  --content-wrapper:transparent;
+  --sidebar:transparent;
+  --content-bottom-wrapper:transparent;
+  --postscript-wrapper:transparent;
+  --postscript-wrapper-dark-region:#333333;
+  --footer-wrapper:transparent;
+  
+  /* main menu * mobile menu */
+  
+  --menu-link-d:#CBCBCB; /* desktop main level link:hover background color */
+  --menu-link-d1:#CBCBCB; /* desktop link:hover background color */
+  --menu-link-m:#CBCBCB; /* mobile link background color */ 
+  --menu-bg-d:#eeeeee;  /* background on main menu desktop */
+  --menu-bg-d1:#eeeeee; /* background on main menu desktop when shrunk (nav affix)*/
+  --menu-bg-d2:#eeeeee; /* ul under desktop expanded menu item */
+  --menu-bg-m:#eeeeee;  /* background on mobile pop out menu */
+  --menu-bg-m2:#eeeeee; /* ul mobile under expanded menu item */
+  
+  --menu-fontcolor-d:#343642; /* link color on main level menu desktop */
+  --menu-fontcolor-d1:#343642; /* link color on all links below main level menu desktop */
+  --menu-fontcolor-m:#343642; /* link color on all mobile menu links */
+  
+  --menu-width:220px; /* width of ul desktop below first level expanded menu item */  
+    
+  /* fonts & links */
+    
+  --font-color: #343642; /* font color */
+  --dr-font-color: #ffffff; /* .dark-region font color */
+  
+  --link-color-1: #6792CC; /* a */
+  --link-color-2: #86b0e8; /* a:hover, a:visited, a:active */
+  --link-color-3: #F9A86F; /* a.secondary */
+  --link-color-4: #fcc49f; /* a.secondary:hover, a.secondary:visited, a.secondary:active */
+  
+  --dr-link-color-1:#FFD27A; /* .dark-region a */
+  --dr-link-color-2:#fcebcc; /* .dark-region a:hover, .dark-region a:visited, .dark-region a:active */
+  --dr-link-color-3:#F9A86F; /* .dark-region a.secondary */
+  --dr-link-color-4:#fcc49f; /* .dark-region a.secondary:hover, .dark-region a.secondary:visited, .dark-region a.secondary:active */
+  
+  /* buttons */
+  
+  --button-primary:#6792CC;                         /* background color */
+  --button-primary-hover:#86b0e8;                   /* background color when hovering */
+  --button-primary-font:#ffffff;                    /* font color */
+  --button-primary-font-hover:#343642;              /* font color when hovering */
+  
+  --button-secondary:#F9A86F;                       /* background color */
+  --button-secondary-hover:#fcc49f;                 /* background color when hovering */
+  --button-secondary-font:#343642;                  /* font color */
+  --button-secondary-font-hover:#343642;            /* font color when hovering */
+                                                     
+  --button-transposed:#eeeeee;                      /* background color */
+  --button-transposed-hover:#dddddd;                /* background color when hovering */
+  --button-transposed-font:#304042;                 /* font color */
+  --button-transposed-font-hover:#5e5a5d;           /* font color when hovering */
+                                                    
+  --button-secondary-transposed:#dddddd;            /* background color */
+  --button-secondary-transposed-hover:#cccccc;      /* background color when hovering */
+  --button-secondary-transposed-font:#304042;       /* font color */
+  --button-secondary-transposed-font-hover:#5e5a5d; /* font color when hovering */
+  
+  --button-outline-border:#5e5a5d;
+  --button-outline-border-hover:#343642;
+  
+  --button-border-radius:2px;
+  
+  /* blocks */
+  
+  --block-border-radius:2px; /* generally should complement the button-border-radius */
+  
+  --block-callout-border:#343642; /* block border color */
+  --block-callout-border-dark:#ffffff; /* block border color for dark regions */
+  --block-secondary-background:#6792CC; /*if the secondary background is too dark, add a block class of dark-region to make the text white */
+  --block-secondary-fontcolor:#343642; /* if the bg is light enough, this can be the same as the main --font-color */
+ /* note that blocks with transposed background are the same as dr-background for light regions and --page-background for dark regions */
+ /* note that the blocks with transposed font colors are the same as --dr-font-color for light regions and the --font-color for dark regions */
+  
+  /* search and views */
+  
+  --search-icon:#999999;
+  --search-icon-hover:#444444;
+}
+
+
+/* ============== */
+/* = Typography = */
+/* ============== */
+
+html {
+  font-size:16px; /* this sets the default (base) font-size for the site */
+  line-height: 24px;/* this sets the default (base) line-height for the site */
+  
+}
+
+body {
+  font-family:"Lato";
+}
+
+/* headers */
+
+h1,
+h2,
+h2 a,
+h3,
+h4,
+h5,
+h6 {
+  width: 100%;
+  clear:both;
+  text-transform:uppercase;
+}
+h1.secondary,
+h2.secondary,
+h2.secondary a,
+h3.secondary,
+h4.secondary,
+h5.secondary,
+h6.secondary {
+  text-transform:unset;
+}
+
+h1.accent,
+h2.accent,
+h2.accent a,
+h3.accent,
+h4.accent,
+h5.accent,
+h6.accent {
+  text-transform:unset;
+  font-family: 'PT Serif', serif;
+}
+
+h1 {
+    font-size:2.5rem;
+    line-height:3.7rem;
+    /*font-family:inherit;*/
+    /*font-weight:inherit;*/
+    /*color:inherit;*/
+    padding:10px 0;
+    margin-bottom:0;
+}
+
+h2,h2 a {
+    font-size:2.25rem;
+    line-height:3.3rem;
+    /*font-family:inherit;*/
+    /*font-weight:inherit;*/
+    /*color:inherit;*/
+}
+
+h3 {
+    font-size:1.625rem;
+    line-height:2.4rem;
+    /*font-family:inherit;*/
+    /*font-weight:inherit;*/
+    /*color:inherit;*/
+}
+
+h4 {
+    font-size: 1.125rem;
+    line-height:1.7rem;
+    /*font-family:inherit;*/
+    /*font-weight:inherit;*/
+    /*color:inherit;*/
+}
+
+h5 {
+    font-size: 1.0625rem;
+    line-height:1.6rem;
+    /*font-family:inherit;*/
+    /*font-weight:inherit;*/
+    /*color:inherit;*/
+}
+
+h6 {
+    font-size: .9rem;
+    line-height: 1.4rem;
+    /*font-family:inherit;*/
+    /*font-weight:inherit;*/
+    /*color:inherit;*/
+}
+
+
+
+b, strong {
+  
+}
+
+i, em {
+  
+}
+
+
+/* links */
+
+a,
+a:visited,
+a:active,
+a:not([href]):not([tabindex]) {
+    color: var(--link-color-1);
+}
+
+a:hover,
+a:not([href]):not([tabindex]):hover {
+    color: var(--link-color-2);
+    text-decoration: none;
+}
+
+a.secondary,
+a.secondary:visited,
+a.secondary:active,
+.secondary .content a,
+.secondary .content a:visited,
+.secondary .content a:active {
+    color: var(--link-color-3);
+}
+
+a.secondary:hover,
+.secondary .content a:hover {
+    color: var(--link-color-4);
+    text-decoration: none;
+}
+
+.dark-region a,
+.dark-region a:visited,
+.dark-region a:active,
+.transposed .content a,
+.transposed .content a:visited,
+.transposed .content a:active  {
+    color: var(--dr-link-color-1);
+}
+
+.dark-region a:hover,
+.transposed .content a:hover {
+    color: var(--dr-link-color-2);
+    text-decoration: none;
+}
+
+.dark-region a.secondary,
+.dark-region a.secondary:visited,
+.dark-region a.secondary:active,
+.transposed .content a.secondary,
+.transposed .content a.secondary:visited,
+.transposed .content a.secondary:active  {
+    color: var(--dr-link-color-3);
+}
+
+.dark-region a.secondary:hover,
+.transposed .content a.secondary:hover {
+    color: var(--dr-link-color-4);
+    text-decoration: none;
+}
+
+
+
+/** dark regions **/
+
+.dark-region * {
+  color: var(--dr-font-color);
+  
+}
+
+.dark-region {
+  background: var(--dr-background);
+}
+
+.dark-region hr,
+.transposed hr {
+  border-color:rgba(255,255,255,.1);
+}
+
+code {
+    font-family: 'Courier New',Courier,monospace;
+    font-weight: bold;
+}
+
+
+/* blockquote style */
+
+blockquote {
+    border-left: 2px solid var(--font-color);
+    padding-left: 15px;
+    width:100%;
+}
+
+.dark-region blockquote {
+  border-left: 2px solid var(--dr-font-color);
+}
+.transposed blockquote {
+  border-left: 2px solid var(--dr-font-color);
+}
+
+/* =========== */
+/* = Buttons = */
+/* =========== */
+
+button.outline,.button.outline {
+  border: 1px solid var(--button-outline-border);
+}
+
+button.outline:hover,button.outline:focus,.button.outline:hover,.button.outline:focus {
+  border: 1px solid var(--button-outline-border-hover);
+}
+
+
+button,.button,a.button,
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle  {
+    background-color: var(--button-primary);
+    color: var(--button-primary-font) !important;
+  }
+
+button:hover,button:focus,a.button:hover,a.button:focus,.btn-primary:hover {
+  background-color: var(--button-primary-hover);
+  color: var(--button-primary-font-hover) !important;
+}
+
+
+
+button.secondary,.button.secondary {
+  background-color: var(--button-secondary);
+  color: var(--button-secondary-font) !important;
+}
+
+button.secondary:hover,button.secondary:focus,.button.secondary:hover,.button.secondary:focus {
+  background-color: var(--button-secondary-hover);
+  color: var(--button-secondary-font-hover) !important;
+}
+
+button.transposed,.button.transposed {
+  background-color: var(--button-transposed);
+  color: var(--button-transposed-font) !important;
+}
+
+button.transposed:hover,button.transposed:focus,.button.transposed:hover,.button.transposed:focus {
+  background-color: var(--button-transposed-hover);
+  color: var(--button-transposed-font-hover) !important;
+}
+
+button.secondary.transposed,.button.secondary.transposed {
+  background-color: var(--button-secondary-transposed);
+  color: var(--button-secondary-transposed-font) !important;
+}
+
+button.secondary.transposed:hover,button.secondary.transposed:focus,.button.secondary.transposed:hover,.button.secondary.transposed:focus {
+  background-color: var(--button-secondary-transposed-hover);
+  color: var(--button-secondary-transposed-font-hover) !important;
+}
+
+
+button,.button,a.button,
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  border-radius: var(--button-border-radius);
+}
+
+
+
+[class^="icon-"].absolute, [class*=" icon-"].absolute {
+  position:relative;
+}
+[class^="icon-"].absolute::before, [class*=" icon-"].absolute::before {
+  position:absolute;
+  left:6px;
+  top:46%;
+  transform:translateY(-50%);
+  
+} 
+/* ================== */
+/* = Block Stylings = */
+/* ================== */
+
+
+.block.callout .inner,
+.block.outline .inner {
+  border-color: var(--block-callout-border);
+}
+
+.dark-region .block.callout .inner,
+.dark-region .block.outline .inner {
+  border-color: var(--block-callout-border-dark);
+}
+
+.block.secondary .inner {
+  background: var(--block-secondary-background);
+  color: var(--block-secondary-fontcolor);
+}
+
+.block.transposed .inner {
+  background-color: var(--dr-background);
+}
+
+.transposed .content *,
+.transposed h2 {
+  color: var(--dr-font-color);
+  
+}
+
+
+.dark-region .block.transposed .inner {
+  background-color: var(--page-background);
+}
+
+.dark-region .transposed .content *,
+.dark-region .transposed h2 {
+  color: var(--font-color);
+  
+}
+
+.block.outline .inner,
+.block.secondary .inner,
+.block.transposed .inner {
+  border-radius: var(--block-border-radius);
+}
+
+
+
+/* ================= */
+/* = Region Colors = */
+/* ================= */
+
+
+body {
+    background-color: var(--page-background);
+    color: var(--font-color);
+}
+body .body-inner.inner {
+    background-color: var(--body-background);
+}
+
+.page {
+    border-right: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    background-color: var(--page-background);
+}
+.help-wrapper{background-color:var(--help-wrapper);}
+.topper-wrapper{background-color:var(--topper-wrapper);}
+.header-banner-wrapper{background-color:var(--header-banner-wrapper);}
+.header-wrapper{background-color:var(--header-wrapper);}
+.banner-wrapper{background-color:var(--banner-wrapper);}
+.content-area-wrapper{background-color:var(--content-area-wrapper);}
+.preface-wrapper{background-color:var(--preface-wrapper);}
+.content-top-wrapper{background-color:var(--content-top-wrapper);}
+.content-wrapper{background-color:var(--content-wrapper);}
+.sidebar{background-color:var(--sidebar);}
+.content-bottom-wrapper{background-color:var(--content-bottom-wrapper);}
+.postscript-wrapper{background-color:var(--postscript-wrapper);}
+.postscript1-wrapper{background-color:var(--postscript-wrapper-dark-region);}
+.footer-wrapper{background-color:var(--footer-wrapper);}
+
+
+/* ========== */
+/* = Search = */
+/* ========== */
+
+.search-block-form .form-search {
+}
+
+.search-block-form .form-wrapper::after {
+  color: var(--link-color-1);
+}
+.search-block-form .form-wrapper:hover::after {
+  color: var(--link-color-2);
+}
+form input.form-time:focus,
+form input.form-date:focus,
+form input.form-tel:focus,
+form input.form-number:focus,
+form input.form-number:focus,
+form input.form-text:focus, 
+form input.form-email:focus, 
+form textarea:focus,
+form input.form-url:focus,
+.form-search:focus:focus,
+form .form-color-output:focus,
+form .form-autocomplete:focus {
+  -webkit-box-shadow: 0 0 4px 0 #444;
+          box-shadow: 0 0 4px 0 #444;
+}
+
+.search-mobile {
+  font-size:150%;
+  text-align:right;
+}
+.search-mobile a {
+  color:var(--link-color-1);
+}
+.search-mobile a:hover {
+  color:var(--link-color-2);
+}
+/* ========= */
+/* = Views = */
+/* ========= */
+.search-form,
+.views-exposed-form {
+  background:var(--mag-acc-color-1);
+}
+
+
+/* ========================== */
+/* = Navigation (Main Menu) = */
+/* ========================== */
+
+.navbar .nav > .menu-item--expanded .menu {
+  
+}
+.main-menu-wrapper .navbar ul li a,
+.main-menu-wrapper .navbar ul li .nav-link,
+.mobile-offcanvas a {
+  text-transform: uppercase;
+}
+.main-menu-wrapper .navbar ul li a,
+.main-menu-wrapper .navbar ul li .nav-link {
+  color: var(--menu-fontcolor-d); /* link color on main level menu desktop */
+}
+.main-menu-wrapper .navbar ul li li a,
+.main-menu-wrapper .navbar ul li li .nav-link {
+  color:var(--menu-fontcolor-d1); /* link color on all links below main level menu desktop */
+}
+.mobile-offcanvas li a {
+  color:var(--menu-fontcolor-m); /* link color on all mobile menu links */
+}
+
+.main-menu-wrapper .navbar .nav > li > a.nav-link:hover {
+  background-color: var(--menu-link-d); /* desktop main level link:hover background color */
+}
+.navbar .nav > .menu-item--expanded .menu li:hover a,
+.navbar .nav > .menu-item--expanded .menu li.menu-item--expanded .menu a:hover {
+  background-color: var(--menu-link-d1); /* desktop link:hover background color */
+  
+}
+.mobile-offcanvas .navbar .nav > li:hover a.nav-link, 
+.mobile-offcanvas .navbar .nav > li > a.nav-link:hover {
+  background-color: var(--menu-link-m) !important; /* mobile link background color */
+}
+.main-menu-wrapper {
+  background-color: var(--menu-bg-d); /* background on main menu desktop */
+}
+nav.affix {
+  background-color: var(--menu-bg-d1); /* background on main menu desktop when shrunk */
+}
+
+.mobile-offcanvas {
+  background-color: var(--menu-bg-m); /* background on mobile pop out menu */
+}
+.navbar .nav > .menu-item--expanded .menu {
+  background-color: var(--menu-bg-d2); /* ul under desktop expanded menu item */
+  width:var(--menu-width); /* width of ul desktop below first level expanded menu item */
+}
+
+.mobile-offcanvas  .navbar .nav > .menu-item--expanded .menu {
+  background-color: var(--menu-bg-m2); /* ul mobile under expanded menu item */
+}
+
+.menu-overlay {
+  background: rgba(0,0,0,0.8); /* overlay background that hides the page when toggler clicked */
+}
+
+
+.navbar-toggler {
+  color: var(--font-color);
+}  
+
+
+
+/* ============================== */
+/* = for the documentation page = */
+/* ============================== */
+
+.branding-wrapper {
+  padding:20px;
+}
+.brand-box-wrapper {
+  font-size:60%;
+  text-align:center;
+  width:110px;
+  float:left;
+  margin:5px;
+
+}
+.brand-box {
+  width:100%;
+  height:110px;
+  border:1px solid #bbb;
+  border-radius: 2px;
+  background-clip: padding-box;
+}
+.brand-box::after {
+  display:block;
+  margin-top:25px;
+  font-size:1rem;
+}
+
+.dark-region .brand-box {
+  border-color: #666;
+}
+
+.brand-box-1{background-color:var(--brand-color-1);}
+.brand-box-2{background-color:var(--brand-color-2);}
+.brand-box-3{background-color:var(--brand-color-3);}
+.brand-box-4{background-color:var(--brand-color-4);}
+.brand-box-5{background-color:var(--brand-color-5);}
+.brand-box-6{background-color:var(--brand-color-6);}
+
+.brand-font-color{background-color:var(--font-color);}
+
+.dark-region .brand-box-1{background-color:var(--dr-brand-color-1);}
+.dark-region .brand-box-2{background-color:var(--dr-brand-color-2);}
+.dark-region .brand-box-3{background-color:var(--dr-brand-color-3);}
+.dark-region .brand-box-4{background-color:var(--dr-brand-color-4);}
+.dark-region .brand-box-5{background-color:var(--dr-brand-color-5);}
+.dark-region .brand-box-6{background-color:var(--dr-brand-color-6);}
+
+.dark-region .brand-font-color{background-color:var(--dr-font-color);}
+
+.brand-link-1{background-color:var(--link-color-1);}
+.brand-link-2{background-color:var(--link-color-2);}
+.brand-link-3{background-color:var(--link-color-3);}
+.brand-link-4{background-color:var(--link-color-4);}
+
+.dark-region .brand-link-1{background-color:var(--dr-link-color-1);}
+.dark-region .brand-link-2{background-color:var(--dr-link-color-2);}
+.dark-region .brand-link-3{background-color:var(--dr-link-color-3);}
+.dark-region .brand-link-4{background-color:var(--dr-link-color-4);}
+
+.button-primary         {background-color: var(--button-primary);}
+.button-primary-hover   {background-color: var(--button-primary-hover);}
+.button-secondary       {background-color: var(--button-secondary);}
+.button-secondary-hover {background-color: var(--button-secondary-hover);}
+.button-transposed      {background-color: var(--button-transposed);}
+.button-transposed-hover{background-color: var(--button-transposed-hover);}
+.button-outline         {background-color: var(--button-outline-border);}
+.button-ouline-hover    {background-color: var(--button-outline-border-hover);}
+
+.block-secondary            {background-color: var(--block-secondary-background);}
+.block-secondary-fontcolor  {background-color: var(--block-secondary-fontcolor);}
+.block-transposed           {background-color: var(--dr-background);}
+.block-transposed-fontcolor {background-color: var(--dr-font-color);}
+.block-callout-border       {background-color: var(--block-callout-border);}
+
+.dark-region .block-transposed           {background-color: var(--page-background);}
+.dark-region .block-transposed-fontcolor {background-color: var(--font-color);}
+.dark-region .block-callout-border       {background-color: var(--block-callout-border-dark);}
+
+.mobile-close {color: var(--dr-font-color);}
+
+
+/* =================== */
+/* = Magic Accordion = */
+/* =================== */
+
+/** colours **/
+
+/** light theme **/
+body .page .magic-accordion-block .body p, body .page .magic-accordion-block .body div {
+  
+}
+.magic-accordion-wrapper.tabbed-wrapper.light ul.magic-accordion .item {
+	color:var(--mag-acc-font-1);
+}
+.magic-accordion-wrapper.tabbed-wrapper.light {
+  background-color:var(--mag-acc-color-1);
+}
+.magic-accordion-wrapper.tabbed-wrapper.light ul.magic-accordion li:hover .item {
+  background-color:var(--mag-acc-color-2);
+	color:var(--mag-acc-font-1);
+}
+.magic-accordion-wrapper.tabbed-wrapper.light ul.magic-accordion .default.description {
+  background-color:var(--mag-acc-color-2);
+	color:var(--mag-acc-font-2);
+}
+.magic-accordion-wrapper.tabbed-wrapper.light ul.magic-accordion li:hover .description {
+	background-color:var(--mag-acc-color-2);
+	color:var(--mag-acc-font-2);
+}
+.magic-accordion-wrapper.accordion-wrapper.light .accordion-button .item {
+  background-color:var(--mag-acc-color-1);
+  color: var(--mag-acc-font-1);
+}
+.magic-accordion-wrapper.accordion-wrapper.light .accordion-button.collapsed .item {
+  background-color:var(--mag-acc-color-1);
+}
+
+.magic-accordion-wrapper.accordion-wrapper.light .description {
+  background-color:var(--mag-acc-color-2);
+  color: var(--mag-acc-font-2);
+}
+.magic-accordion-wrapper.accordion-wrapper.light .description p, .magic-accordion-wrapper.accordion-wrapper .description p {
+  color: var(--mag-acc-font-2);
+}
+
+.magic-accordion-wrapper.tabbed-wrapper.light,
+.magic-accordion-wrapper.accordion-wrapper.light {
+  border-color:var(--mag-acc-color-1);
+}
+
+/** dark theme **/
+
+.magic-accordion-wrapper.tabbed-wrapper.dark ul.magic-accordion .item {
+	color:var(--mag-acc-dr-font-1);
+}
+.magic-accordion-wrapper.tabbed-wrapper.dark {
+  background-color:var(--mag-acc-dr-color-1);
+}
+.magic-accordion-wrapper.tabbed-wrapper.dark ul.magic-accordion li:hover .item {
+  background-color:var(--mag-acc-dr-color-2);
+	color:var(--mag-acc-dr-font-1);
+}
+.magic-accordion-wrapper.tabbed-wrapper.dark ul.magic-accordion .default.description {
+  background-color:var(--mag-acc-dr-color-2);
+	color:var(--mag-acc-dr-font-2);
+}
+.magic-accordion-wrapper.tabbed-wrapper.dark ul.magic-accordion li:hover .description {
+	background-color:var(--mag-acc-dr-color-2);
+	color:var(--mag-acc-dr-font-2);
+}
+.magic-accordion-wrapper.accordion-wrapper.dark .accordion-button .item {
+  background-color:var(--mag-acc-dr-color-1);
+  color: var(--mag-acc-dr-font-1);
+}
+.magic-accordion-wrapper.accordion-wrapper.dark .accordion-button.collapsed .item {
+  background-color:var(--mag-acc-dr-color-1);
+}
+
+.magic-accordion-wrapper.accordion-wrapper.dark .description {
+  background-color:var(--mag-acc-dr-color-2);
+  color: var(--mag-acc-dr-font-2);
+}
+.magic-accordion-wrapper.accordion-wrapper.dark .description p, .magic-accordion-wrapper.accordion-wrapper .description p {
+  color: var(--mag-acc-dr-font-2);
+}
+
+.magic-accordion-wrapper.tabbed-wrapper.dark,
+.magic-accordion-wrapper.accordion-wrapper.dark {
+  border-color:var(--mag-acc-dr-color-1);
+}
+
+
+/* */

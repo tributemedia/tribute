@@ -1,0 +1,38 @@
+/* ------------------ Sidebar ----------------- */
+
+.sidebar {
+	.block {
+		.content {
+			font-size: rem-calc(16);
+			padding-left: rem-calc(30);
+			.more-link {
+				margin-left: -30px;
+			}
+			.views-field-title {
+				a {
+					color:$secondary-color;
+					position: relative;
+					&:hover {
+						color:$primary-color;
+						&::before {
+							content: ".";
+							color:$primary-color;
+							position: absolute;
+							left: -17px;
+							font-size: 40px;
+							top: 0;
+							line-height: 0px;
+						}
+					}
+				}
+			}
+		}
+	}
+	h2 {
+		padding-bottom: 5px;
+		font-size: rem-calc(32);
+		font-family: $heading-font-family;
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+}

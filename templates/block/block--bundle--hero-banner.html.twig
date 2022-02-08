@@ -1,0 +1,73 @@
+
+{%
+  set classes = [
+    'col',
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+{%
+  set content_classes = [
+    'content',
+    'hero-banner',
+  ]
+%}
+<div {{ attributes.addClass(classes) }}>
+  <div class="inner">
+  {{ title_suffix }}
+  {% block content %}
+    <div {{ content_attributes.addClass(content_classes) }}>
+        <div class="hero-image-wrapper align-middle {{ attributes.id }} {{ content['#block_content'].field_align_banner_text.value }}">
+            <div class="row {{ content['#block_content'].field_vertical_position.value }}">
+                <div class="my-auto col">
+                    {% if content['#block_content'].field_main_title.value or content.field_sub_text[0] or content.field_button_link[0] %}
+                        <div class="hero-text-wrapper">
+                            <div class="container {{ content['#block_content'].field_align_banner_text.value }} {{ content['#block_content'].field_dark_or_light_text.value }}">
+
+                                {% if content['#block_content'].field_main_title.value %}
+                                    <{{ content['#block_content'].field_title_text_style.value }} class="hero-title">{{ content['#block_content'].field_main_title.value }}</{{ content['#block_content'].field_title_text_style.value }}>
+                                {% endif %} {# h1 or h2 #}
+
+                                {% if content.field_sub_text[0]  %}
+                                    <div class="hero-subtitle">
+                                        {{ content['#block_content'].field_sub_text.value|raw }}
+                                    </div>
+                                {% endif %}
+
+                                {% if content.field_button_link[0] %}
+                                    <div class="hero-cta">
+                                        {{ content.field_button_link[0] }}
+                                    </div>
+                                {% endif %}
+                    
+                                {% if content.field_button_link[1] %}
+                                    <div class="hero-cta">
+                                        {{ content.field_button_link[1] }}
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <style>
+        .hero-image-wrapper.{{ attributes.id }} {
+            background:transparent url('{{ file_url(content.field_background_image['#items'].entity.uri.value) }}') no-repeat center {{ content['#block_content'].field_mobile_image_alignment.value }};
+            height:{{ content.field_height_in_pixels[0] }}px;
+            max-height:{{ content.field_height_in_pixels[0] }}px;
+        }
+        .h-100 {max-width:100%;}
+        .top-20{max-width:100%;position:relative;top:20px;}
+        .top-50{max-width:100%;position:relative;top:50px;}
+        .top-75{max-width:100%;position:relative;top:75px;}
+        .top-100{max-width:100%;position:relative;top:100px;}
+        .top-150{max-width:100%;position:relative;top:150px;}
+        .top-other{max-width:100%;}
+        </style>
+
+    </div>
+  {% endblock %}
+</div></div>

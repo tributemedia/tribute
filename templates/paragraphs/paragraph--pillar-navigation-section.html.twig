@@ -1,0 +1,85 @@
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      {% if paragraph.field_section_visibility.value != 'pillar-hidden' %}
+        {% if paragraph.field_pillar_design_mode.value == 'banner' %}
+            
+        <div id="paragraph-id-{{ paragraph.id() }}" class="paragraph-id-{{ paragraph.id() }} banner pillar-section pillar-navigation-section {{ content.field_link_orientation[0] }}">
+            <div class="inner row">
+            {% if content.field_pillar_section_title.0 %}<h2> {{ content.field_pillar_section_title[0] }}</h2>{% endif %}
+            {% if content.field_pillar_navigation_image.0 %}<div class="pillar-image"><img alt="{{ content.field_pillar_navigation_image['#items'].alt }}" src="{{ file_url(content.field_pillar_navigation_image['#items'].entity.uri.value) }}"></div>{% endif %}
+            {% if content.field_pillar_section_text.0 %}<div class="content"> {{ content.field_pillar_section_text }}</div>{% endif %}
+            {{ content.field_pillar_link }}
+            
+            </div>
+        </div>
+            
+            
+        {% elseif paragraph.field_pillar_design_mode.value == 'background' %}
+        
+        <div id="paragraph-id-{{ paragraph.id() }}" class="paragraph-id-{{ paragraph.id() }} background pillar-section pillar-navigation-section {{ content.field_link_orientation[0] }}">
+            <div class="inner"> 
+                <div class="row h-100">
+                <div class="img-side col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6"> 
+                    
+                </div>
+                <div class="text-side col my-auto col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                {% if content.field_pillar_section_title.0 %}<h2> {{ content.field_pillar_section_title[0] }}</h2>{% endif %}
+                    {% if content.field_pillar_section_text.0 %}<div class="content"> {{ content.field_pillar_section_text }}</div>{% endif %}
+                    {{ content.field_pillar_link }}
+                </div>
+
+                
+                
+            </div>
+        </div>
+        </div>
+        
+        {% if content.field_pillar_navigation_image.0 %}
+        <style>
+        .paragraph-id-{{ paragraph.id() }}.background .img-side {
+            background-image: url('{{ file_url(content.field_pillar_navigation_image['#items'].entity.uri.value) }} ');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-color:#bbb;
+            min-height:150px;
+        }
+        </style>
+        {% endif %}
+        
+        {% else %}
+        
+        <div id="paragraph-id-{{ paragraph.id() }}" class="paragraph-id-{{ paragraph.id() }} icon pillar-section pillar-navigation-section {{ content.field_link_orientation[0] }}">
+            <div class="inner">
+                <div class="row h-100">
+                    <div class="img-side col my-auto col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                        {% if content.field_pillar_navigation_image.0 %}<div class="pillar-image"><img alt="{{ content.field_pillar_navigation_image['#items'].alt }}" src="{{ file_url(content.field_pillar_navigation_image['#items'].entity.uri.value) }}"></div>{% endif %}
+                    </div>
+                    <div class="text-side col my-auto col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        {% if content.field_pillar_section_title.0 %}<h2> {{ content.field_pillar_section_title[0] }}</h2>{% endif %}
+                        {% if content.field_pillar_section_text.0 %}<div class="content"> {{ content.field_pillar_section_text }}</div>{% endif %}
+                        {{ content.field_pillar_link }}
+                               
+                    </div>
+                    
+            </div>
+        </div>
+        </div>
+        
+        
+        {% endif %}            
+
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

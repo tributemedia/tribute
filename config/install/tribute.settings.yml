@@ -1,0 +1,37 @@
+# Library
+# --------------
+tribute_library: 'production'
+# Layout
+# --------------
+tribute_sidebar_position: 'both'
+tribute_content_offset: 0
+tribute_sidebar_first_width: 4
+tribute_sidebar_first_offset: 0
+tribute_sidebar_second_width: 3
+tribute_sidebar_second_offset: 0
+
+# Container
+# --------------
+tribute_fluid_container: 0
+
+# Buttons
+# --------------
+tribute_button: 1
+tribute_button_size: ''
+tribute_button_outline: 0
+
+# Navbar
+# --------------
+tribute_navbar_toggle: 1
+tribute_navbar_container: 'navbar-toggleable-md'
+tribute_navbar_top_position: ''
+tribute_navbar_top_color: 'navbar-dark'
+tribute_navbar_top_background: 'bg-secondary'
+tribute_navbar_position: ''
+tribute_navbar_color: 'navbar-dark'
+tribute_navbar_background: 'bg-primary'
+# Colors
+# --------------
+tribute_table_hover: 1
+tribute_table_style: 'table-striped'
+

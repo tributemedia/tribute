@@ -1,0 +1,47 @@
+
+{% block paragraph %}
+  <div class="paragraph-id-{{ paragraph.id() }} paragraph card-section {{ content.field_card_spacing[0] }} card{% if paragraph.field_card_style.value == 'simple' %} card-simple{% endif %}">
+      <div class="inner">
+    {% block content %}
+
+        {% if paragraph.field_card_style.value == 'card' %}
+            
+        <div class=" text-{{ content.field_card_text_alignment[0] }} color-{{ content.field_card_text_color[0] }} ">
+            <div class="inner {{ content.field_card_style[0] }}-body">
+            {% if content.field_card_title[0] %}<h2 class="card-title"> {{ content.field_card_title[0] }}</h2>{% endif %}
+            {% if content.field_card_image[0] %}<div class="card-image"><img style="max-width:{{ content.field_padding_around_icon[0] }}%;"alt="{{ content.field_card_image['#items'].alt }}" src="{{ file_url(content.field_card_image['#items'].entity.uri.value) }}"></div>{% endif %}
+            {% if content.field_card_text[0] %}<div class="card-text"> {{ content.field_card_text[0] }}</div>{% endif %}
+            {{ content.field_pillar_link }}
+            </div>
+        </div>
+        
+        {% elseif paragraph.field_card_style.value == 'card2' %}
+            
+            <div class="paragraph-id-{{ paragraph.id() }} text-{{ content.field_card_text_alignment[0] }} color-{{ content.field_card_text_color[0] }} ">
+                <div class="inner {{ content.field_card_style[0] }}-body">
+                {% if content.field_card_image %}<div class="card-image card-img-top"><img style="max-width:{{ content.field_padding_around_icon[0] }}%;"alt="{{ content.field_card_image['#items'].alt }}" src="{{ file_url(content.field_card_image['#items'].entity.uri.value) }}"></div>{% endif %}
+                    <div class="inner">
+                {% if content.field_card_title[0] %}<h2 class="card-title">{{ content.field_card_title[0] }}</h2>{% endif %}
+                {% if content.field_card_text[0] %}<div class="card-text">{{ content.field_card_text[0] }}</div>{% endif %}
+            {{ content.field_pillar_link }}
+                </div>
+            </div>
+            </div>
+              
+            {% elseif paragraph.field_card_style.value == 'simple' %}
+            
+            <div class="paragraph-id-{{ paragraph.id() }} text-{{ content.field_card_text_alignment[0] }} color-{{ content.field_card_text_color[0] }}">
+                <div class="inner {{ content.field_card_style[0] }}-body">
+                {% if content.field_card_title[0] %}<h2 class="card-simple-title"> {{ content.field_card_title[0] }}</h2>{% endif %}
+                {% if content.field_card_image[0] %}<div class="card-simple-image"><img style="max-width:{{ content.field_padding_around_icon[0] }}%;"alt="{{ content.field_card_image['#items'].alt }}" src="{{ file_url(content.field_card_image['#items'].entity.uri.value) }}"></div>{% endif %}
+                {% if content.field_card_text[0] %}<div class="card-simple-text"> {{ content.field_card_text[0] }}</div>{% endif %}
+            {{ content.field_pillar_link }}
+                </div>
+            </div>
+            
+            {% endif %}
+
+    {% endblock %}
+</div>
+  </div>
+{% endblock paragraph %}
