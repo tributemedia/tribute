@@ -1,3 +1,29 @@
+/* ================ */
+/* = Modal Styles = */
+/* ================ */
+
+.ui-dialog-title::before {
+  border-top: 3px solid #FFFFFF;
+  height: 2px;
+  width: 14px;
+  top: 13px;
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 10px;
+  z-index: 1;
+}
+
+.ui-dialog-title::after {
+  border-top: 3px solid #FFFFFF;
+  height: 2px;
+  width: 14px;
+  top: 13px;
+  position: absolute;
+  transform: rotate(45deg);
+  left: 10px;
+  z-index: 1;
+}
+
 /* =========== */
 /* = General = */
 /* =========== */
