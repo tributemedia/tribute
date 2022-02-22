@@ -2,26 +2,12 @@
 /* = Modal Styles = */
 /* ================ */
 
-.ui-dialog-title::before {
-  border-top: 3px solid #FFFFFF;
-  height: 2px;
-  width: 14px;
-  top: 13px;
-  position: absolute;
-  transform: rotate(-45deg);
-  left: 10px;
-  z-index: 1;
-}
-
-.ui-dialog-title::after {
-  border-top: 3px solid #FFFFFF;
-  height: 2px;
-  width: 14px;
-  top: 13px;
-  position: absolute;
-  transform: rotate(45deg);
-  left: 10px;
-  z-index: 1;
+.ui-dialog .ui-dialog-titlebar-close {
+/*    background-image: url("../images/close-icon.svg");*/
+	background-image: url("../images/close-icon-white.svg");
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: center;
 }
 
 /* =========== */
