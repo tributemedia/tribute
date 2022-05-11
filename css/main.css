@@ -1,3 +1,15 @@
+/* ================ */
+/* = Modal Styles = */
+/* ================ */
+
+.ui-dialog .ui-dialog-titlebar-close {
+/*    background-image: url("../images/close-icon.svg");*/
+	background-image: url("../images/close-icon-white.svg");
+    background-repeat: no-repeat;
+    background-size: 16px;
+    background-position: center;
+}
+
 /* =========== */
 /* = General = */
 /* =========== */

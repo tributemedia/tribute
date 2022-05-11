@@ -3,6 +3,7 @@ type: theme
 description: Tribute Media Theme based on Bootstrap Framework.
 core_version_requirement: ^8 || ^9
 
+
 # Defines the base theme.
 base theme: false
 
