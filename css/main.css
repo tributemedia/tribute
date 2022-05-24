@@ -492,6 +492,7 @@ a.small_logo img {
 	transition: all .3s linear;
 	opacity: 0;
 	z-index: -100;
+	overflow-y: scroll;
 }
 
 .mobile-offcanvas.open {
