@@ -1947,6 +1947,10 @@ a#back-to-top {
 	margin-bottom: 20px;
 }
 
+.pillar-section .content {
+	width:100%;
+}
+
 .pillar-section .row {
 	margin-left: 0;
 	margin-right: 0;
