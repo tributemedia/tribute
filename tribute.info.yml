@@ -1,7 +1,7 @@
 name: Tribute Media Narwhal 2020 Base Theme
 type: theme
 description: Tribute Media Theme based on Bootstrap Framework.
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 
 
 # Defines the base theme.
