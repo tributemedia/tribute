@@ -9,7 +9,7 @@
     $(this).next('.menu').slideToggle();
     $(this).toggleClass('show');
   }); */
-  $('#main-menu-container .menu .menu-item--expanded >.icon').click(function(){ 
+  $('nav.menu--main .nav .menu-item--expanded >.icon').click(function(){ 
     $(this).next('.menu').slideToggle();
     $(this).toggleClass('show');
   });
