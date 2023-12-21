@@ -34,12 +34,16 @@
       to be exported as printer-friendly HTML.
     #}
 
-  {% for i in 1..depth-1 if depth > 1 %}
-    <div class="section-{{ i }}">
+  {% for i in 1..depth-1 %}
+    {% if depth > 1 %}
+      <div class="section-{{ i }}">
+    {% endif %}
   {% endfor %}
   {{ contents }}
-  {% for i in 1..depth-1 if depth > 1 %}
-    </div>
+  {% for i in 1..depth-1 %}
+    {% if depth > 1 %}
+      </div>
+    {% endif %}
   {% endfor %}
   </body>
 </html>
